@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Create</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+      <a [routerLink] = "['/dashboard']">Cancel</a>
+    <h1>
+      Put the question and options here:
+    </h1>
+    <div class="tbl-header">
+        <form (submit)="createPoll()" #formData='ngForm'>
+        Question: <input name='question' type="text" [(ngModel)] = "newpoll.question"/> <br>
+        Option 1: <input name='option1' type="text" [(ngModel)] = "newpoll.optionone.text"/> <br>
+        Option 2: <input name='option2' type="text" [(ngModel)] = "newpoll.optiontwo.text"/> <br>
+        Option 3: <input name='option3' type="text" [(ngModel)] = "newpoll.optionthree.text"/> <br>
+        Option 4: <input name='option4' type="text" [(ngModel)] = "newpoll.optionfour.text"/> <br>
+        <input class='green' [disabled]='formData.invalid' type="submit" value="Create Poll"> 
+      </form>
+    </div>
+  </body> 
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head><a [routerLink] = "['/dashboard']">Go to Polls</a>
+  <body>
+    <div class = "container">
+      <div class = "head">
+        <h1>{{oneQuestion.question}}</h1>
+        <p> Click the Vote button to choose one</p>
+      </div>
+    <div class="tbl-header">
+        <table col-width = "50%">
+          <thead>
+              <tr>
+                <th>Option</th>
+                <th>Current Count of Votes</th>
+                <th>Action</th>            
+              </tr>
+          </thead>
+          <tr>
+              <td>{{oneQuestion.optionone.text}}</td>
+              <td>{{oneQuestion.optionone.score}}</td>
+              <td><button type="button" name="button" (click) = "vote(oneQuestion.optionone)">Vote</button></td>          
+          </tr>
+          <tr>
+              <td>{{oneQuestion.optiontwo.text}}</td>
+              <td>{{oneQuestion.optiontwo.score}}</td>
+              <td><button type="button" name="button" (click) = "vote(oneQuestion.optiontwo)">Vote</button></td>          
+          </tr>
+          <tr>
+              <td>{{oneQuestion.optionthree.text}}</td>
+              <td>{{oneQuestion.optionthree.score}}</td>
+              <td><button type="button" name="button" (click) = "vote(oneQuestion.optionthree)">Vote</button></td>          
+          </tr>
+          <tr>
+              <td>{{oneQuestion.optionfour.text}}</td>
+              <td>{{oneQuestion.optionfour.score}}</td>
+              <td><button type="button" name="button" (click) = "vote(oneQuestion.optionfour)">Vote</button></td>          
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body> 
+</html>

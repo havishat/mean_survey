@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="topcontainer">
+          <div class="header">
+              <h2>Welcome {{ name }}!</h2>
+              <a [routerLink] = "['/create']">Create a New Poll</a> || <a><span (click) = "logout()"><button type="button" class="logout">Logout</button></span></a>
+          </div>
+          <input [(ngModel)]="searchText" placeholder="search for questions">
+      </div>
+      <table col-width = "50%">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Survey Question</th>
+                  <th>Data Posted</th>  
+                  <th>Action</th>           
+                </tr>
+            </thead>
+            <tr *ngFor = "let poll of polls | filter : searchText">
+                <td>{{poll.creator}}</td>
+                <td><a [routerLink] = "['/poll', poll._id]">{{poll.question}}</a></td>
+                <td>{{poll.createdAt}}</td>
+                <td><p *ngIf = "poll.creator == name"><button type="button" name="button" (click) = "deletePoll(poll._id)">Delete</button></p></td>          
+            </tr>
+        </table>
+  </div>
+  </body>
+</html>
+
